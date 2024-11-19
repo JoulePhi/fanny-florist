@@ -51,7 +51,14 @@
             <nav>
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
                     <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                        <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round"
+                            stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor"
+                            fill="none">
+                            <rect x="3" y="1" width="7" height="12"></rect>
+                            <rect x="3" y="17" width="7" height="6"></rect>
+                            <rect x="14" y="1" width="7" height="6"></rect>
+                            <rect x="14" y="11" width="7" height="12"></rect>
+                        </svg>
                         <span
                             class="self-center text-2xl font-semibold whitespace-nowrap text-white">{{ config('site_settings.company_name') }}</span>
 
@@ -83,7 +90,14 @@
         <nav>
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round"
+                        stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor"
+                        fill="none">
+                        <rect x="3" y="1" width="7" height="12"></rect>
+                        <rect x="3" y="17" width="7" height="6"></rect>
+                        <rect x="14" y="1" width="7" height="6"></rect>
+                        <rect x="14" y="11" width="7" height="12"></rect>
+                    </svg>
                     <span
                         class="self-center text-2xl font-semibold whitespace-nowrap text-slate-900">{{ config('site_settings.company_name') }}</span>
                 </a>
