@@ -16,6 +16,13 @@ class HomeController extends Controller
             ->get();
 
         $categories = Category::withCount('products')
+            ->with(['products' => function ($query) {
+                $query->select('id', 'category_id', 'images')
+                    ->whereNotNull('images')
+                    ->where('images', '!=', '[]')
+                    ->inRandomOrder()
+                    ->take(1);
+            }])
             ->having('products_count', '>', 0)
             ->take(6)
             ->get();
