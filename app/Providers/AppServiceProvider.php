@@ -31,9 +31,6 @@ class AppServiceProvider extends ServiceProvider
             // Disable debugbar
             // \Debugbar::disable();
         }
-        Paginator::defaultView('pagination::semantic-ui');
-        $this->app->resolving(Paginator::class, function ($paginator) {
-            return $paginator->withQueryString();
-        });
+        Paginator::defaultView('vendor.pagination.tailwind');
     }
 }

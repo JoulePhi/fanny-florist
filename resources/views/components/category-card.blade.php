@@ -10,7 +10,8 @@
 </a> --}}
 
 
-<a href="" class="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+<a href="{{ route('catalog.category', $category->slug) }}"
+    class="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
     <div class="aspect-square relative">
         <img src="{{ asset('storage/' . $category->products->first()?->images[0]) ?? asset('images/placeholder.jpg') }}"
             alt="Kategori {{ $category->name }} - {{ config('app.name') }}"

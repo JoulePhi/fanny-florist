@@ -57,35 +57,32 @@
         <div class="relative h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
             <!-- Decorative Element -->
             <div class="mb-6">
-                <svg class="w-16 h-16 text-rose-400 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12C2,6.48 6.48,2 12,2M12,4C7.58,4 4,7.58 4,12C4,16.42 7.58,20 12,20C16.42,20 20,16.42 20,12C20,7.58 16.42,4 12,4M12,6C15.31,6 18,8.69 18,12C18,15.31 15.31,18 12,18C8.69,18 6,15.31 6,12C6,8.69 8.69,6 12,6M12,8C9.79,8 8,9.79 8,12C8,14.21 9.79,16 12,16C14.21,16 16,14.21 16,12C16,9.79 14.21,8 12,8Z" />
-                </svg>
+                <img src="{{ asset('images/sakura-icon.png') }}" class="h-32 object-contain" alt="Logo Sakura">
             </div>
 
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif text-rose-800 mb-4 animate-fade-in-down">
-                Blooming Beauty
+            <h1 class="text-4xl sm:text-5xl md:text-6xl  text-rose-800 mb-4 animate-fade-in-down">
+                {{ config('site_settings.hero_title') }}
             </h1>
 
             <h2 class="text-xl sm:text-2xl md:text-3xl text-rose-600 font-light mb-8 max-w-3xl mx-auto animate-fade-in-up">
-                Handcrafted bouquets that tell your story with nature's finest blooms
+                {{ config('site_settings.hero_subtitle') }}
             </h2>
 
             <!-- CTA Buttons -->
             <div class="space-x-4">
-                <button
+                <a href="https://wa.me/{{ config('site_settings.whatsapp_number') }}"
                     class="px-8 py-4 bg-gradient-to-r from-rose-400 to-pink-500 text-white font-medium rounded-full
         transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg
         focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50">
-                    Shop Bouquets
-                </button>
+                    Pesan Sekarang!
+                </a>
 
-                <button
+                <a href="{{ route('catalog') }}"
                     class="px-8 py-4 bg-white/80 text-rose-600 font-medium rounded-full border-2 border-rose-400
         transform transition duration-300 ease-in-out hover:bg-rose-50 hover:shadow-lg
         focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50">
-                    Custom Order
-                </button>
+                    Lihat Produk
+                </a>
             </div>
         </div>
     </div>
@@ -254,7 +251,7 @@
 
             <!-- Call to Action -->
             <div class="text-center mt-8 sm:mt-12">
-                <a href=""
+                <a href="{{ route('categories') }}"
                     class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 transition-colors duration-300">
                     Lihat Semua Kategori
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"

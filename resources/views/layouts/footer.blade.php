@@ -102,20 +102,14 @@
 <footer class="bg-gradient-to-b from-pink-50 to-white relative">
     <!-- Decorative flower elements -->
     <div class="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 opacity-20">
-        <svg viewBox="0 0 24 24" class="fill-pink-300">
-            <path
-                d="M12,1C8.13,1,5,4.13,5,8c0,2.38,1.19,4.47,3,5.74V15c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-1.26 c1.81-1.27,3-3.36,3-5.74C19,4.13,15.87,1,12,1z" />
-        </svg>
+        <img src="{{ asset('images/sakura-icon.png') }}" class="h-12 " alt="Logo Sakura">
     </div>
     <div class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 opacity-20 rotate-45">
-        <svg viewBox="0 0 24 24" class="fill-pink-300">
-            <path
-                d="M12,1C8.13,1,5,4.13,5,8c0,2.38,1.19,4.47,3,5.74V15c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-1.26 c1.81-1.27,3-3.36,3-5.74C19,4.13,15.87,1,12,1z" />
-        </svg>
+        <img src="{{ asset('images/sakura-icon.png') }}" class="h-12 " alt="Logo Sakura">
     </div>
 
     <!-- Main footer content -->
-    <div class="container mx-auto px-4 py-12">
+    <div class="container mx-auto px-4 py-12 max-w-7xl">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- About section -->
             <div class="space-y-4">

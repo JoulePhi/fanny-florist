@@ -3,24 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\{Category, Product};
+use App\Services\ProductSortingService;
 use App\Services\SeoService;
+use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
     protected $seoService;
 
-    public function __construct(SeoService $seoService)
+    public function __construct(SeoService $seoService,)
     {
         $this->seoService = $seoService;
     }
 
-    public function index()
+    public function index(Request $request, ProductSortingService $sortingService)
     {
+
         $categories = Category::withCount('products')->get();
-        $products = Product::with('category')
-            ->where('is_available', true)
-            ->latest()
-            ->paginate(12);
+        $query = Product::with('category')->where('is_available', true);
+        $sort = $request->query('sort', 'latest');
+
+        $query = $sortingService->apply($query, $sort);
+
+        $products = $query->paginate(12);
 
         $seo = [
             'title' => 'Our Flower Collection - ' . config('site_settings.company_name'),

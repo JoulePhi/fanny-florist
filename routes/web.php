@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
     CatalogController,
+    CategoryController,
     ContactController,
     FaqController,
     MonitoringController,
@@ -18,6 +19,8 @@ Route::middleware([\App\Http\Middleware\SecurityHeaders::class])->group(function
         Route::get('/seo', [MonitoringController::class, 'seo'])->name('monitoring.seo');
     });
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+    Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('categories.show');
     Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
     Route::get('/catalog/{category:slug}', [CatalogController::class, 'category'])->name('catalog.category');
     Route::get('/catalog/{category:slug}/{product:slug}', [CatalogController::class, 'product'])->name('catalog.product');
