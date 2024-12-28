@@ -16,6 +16,8 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -24,7 +26,8 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-c-sun';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -67,17 +70,19 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('images')->square(),
-                TextColumn::make('name')->searchable(),
+                TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('slug')->searchable(),
                 TextColumn::make('description')->searchable(),
-                TextColumn::make('price')->searchable(),
-                TextColumn::make('sale')->searchable(),
+                TextColumn::make('price')->searchable()->sortable()->money('IDR', locale: 'id'),
+                TextColumn::make('sale')->searchable()->sortable()->money('IDR', locale: 'id'),
+                ToggleColumn::make('is_available')->label('Available')
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -100,5 +105,9 @@ class ProductResource extends Resource
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

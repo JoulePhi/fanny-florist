@@ -77,12 +77,12 @@
                     Pesan Sekarang!
                 </a>
 
-                <a href="{{ route('catalog') }}"
+                {{-- <a href="{{ route('catalog') }}"
                     class="px-8 py-4 bg-white/80 text-rose-600 font-medium rounded-full border-2 border-rose-400
         transform transition duration-300 ease-in-out hover:bg-rose-50 hover:shadow-lg
         focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50">
                     Lihat Produk
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
@@ -103,82 +103,14 @@
             <!-- Features Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Feature 1 - Free Shipping -->
-                <article
-                    class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                    <!-- Icon Container -->
-                    <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <!-- Feature Title -->
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                        Gratis Ongkir
-                    </h3>
-                    <!-- Feature Description -->
-                    <p class="text-gray-600">
-                        Nikmati gratis ongkir ke seluruh Indonesia untuk setiap pembelian minimal Rp500.000
-                    </p>
-                </article>
+                @foreach ($features as $feature)
+                    <x-feature-card :feature="$feature" />
+                @endforeach
 
-                <!-- Feature 2 - Fast Service -->
-                <article
-                    class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                    <div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                        Pengerjaan Cepat
-                    </h3>
-                    <p class="text-gray-600">
-                        Proses pengerjaan cepat dan tepat waktu dengan hasil berkualitas
-                    </p>
-                </article>
 
-                <!-- Feature 3 - Free Consultation -->
-                <article
-                    class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                    <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-purple-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                        Konsultasi Gratis
-                    </h3>
-                    <p class="text-gray-600">
-                        Dapatkan konsultasi gratis dari tim ahli kami untuk hasil terbaik
-                    </p>
-                </article>
-
-                <!-- Feature 4 - Quality Guarantee -->
-                <article
-                    class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-                    <div class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-full mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-yellow-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                        Garansi Kualitas
-                    </h3>
-                    <p class="text-gray-600">
-                        Kami memberikan garansi untuk setiap produk dan layanan kami
-                    </p>
-                </article>
             </div>
 
-            <!-- Additional Features List -->
+            {{-- <!-- Additional Features List -->
             <div class="mt-12 max-w-3xl mx-auto">
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <li class="flex items-center space-x-3">
@@ -214,7 +146,7 @@
                         <span class="text-gray-600">Reward Points Setiap Pembelian</span>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </section>
 
@@ -222,7 +154,12 @@
     {{-- Featured Products --}}
     <section class="py-8 sm:py-12 md:py-16">
         <div class="container mx-auto max-w-screen-xl px-4 sm:px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Bunga Pilihan Terbaik</h2>
+            <header class="text-center mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">Bunga Pilihan Terbaik</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Temukan bunga pilihan terbaik kami untuk setiap kesempatan spesial Anda
+                </p>
+            </header>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 @foreach ($featuredProducts as $product)
                     <x-product-card :product="$product" />
@@ -254,8 +191,7 @@
                 <a href="{{ route('categories') }}"
                     class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 transition-colors duration-300">
                     Lihat Semua Kategori
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
-                        fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                             clip-rule="evenodd" />
@@ -274,46 +210,16 @@
                     Frequently Asked Questions
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Find answers to common questions about our services
+                    Cari jawaban untuk pertanyaan umum tentang layanan kami
                 </p>
             </div>
 
             <!-- FAQ Grid -->
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <!-- FAQ Item 1 -->
-                <article class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                        How do I get started?
-                    </h3>
-                    <p class="text-gray-600">
-                        Getting started is easy! Simply sign up for an account and follow our quick onboarding process. Our
-                        team will guide you through each step.
-                    </p>
-                </article>
-
-                <!-- FAQ Item 2 -->
-                <article class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                        What payment methods do you accept?
-                    </h3>
-                    <p class="text-gray-600">
-                        We accept all major credit cards, PayPal, and bank transfers. All payments are processed securely
-                        through our payment gateway.
-                    </p>
-                </article>
-
-                <!-- FAQ Item 3 -->
-                <article class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                        Can I cancel my subscription?
-                    </h3>
-                    <p class="text-gray-600">
-                        Yes, you can cancel your subscription at any time. There are no long-term contracts or cancellation
-                        fees.
-                    </p>
-                </article>
-
-                <!-- Add more FAQ items as needed -->
+                <!-- FAQ Card 1 -->
+                @foreach ($faqs as $faq)
+                    <x-faq-card :faq="$faq" />
+                @endforeach
             </div>
         </div>
     </section>
@@ -324,98 +230,16 @@
             <!-- Section Header -->
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
-                    What Our Clients Say
+                    Apa Kata Pelanggan Kami?
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Trusted by thousands of satisfied customers worldwide
+                    Baca testimoni pelanggan yang puas dengan layanan kami
                 </p>
             </div>
-
-            <!-- Testimonials Grid -->
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Testimonial Card 1 -->
-                <article class="bg-white rounded-lg shadow-sm p-8 relative">
-                    <!-- Quote Icon -->
-                    <div class="absolute top-4 right-4">
-                        <svg class="w-8 h-8 text-indigo-200" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.999v10h-9.999z" />
-                        </svg>
-                    </div>
-
-                    <!-- Testimonial Content -->
-                    <div class="mb-6">
-                        <p class="text-gray-600 italic">
-                            "The service exceeded my expectations. The team was professional, responsive, and delivered
-                            outstanding results. I couldn't be happier with the outcome."
-                        </p>
-                    </div>
-
-                    <!-- Author Info -->
-                    <div class="flex items-center">
-                        <div class="h-12 w-12 rounded-full bg-gray-300">
-                            <!-- Replace with actual image -->
-                            <img src="https://picsum.photos/200" alt="Profile photo of Sarah Johnson"
-                                class="h-full w-full object-cover rounded-full">
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-semibold text-gray-900">Sarah Johnson</h3>
-                            <p class="text-gray-600">CEO, TechCorp</p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Testimonial Card 2 -->
-                <article class="bg-white rounded-lg shadow-sm p-8 relative">
-                    <div class="absolute top-4 right-4">
-                        <svg class="w-8 h-8 text-indigo-200" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.999v10h-9.999z" />
-                        </svg>
-                    </div>
-                    <div class="mb-6">
-                        <p class="text-gray-600 italic">
-                            "Working with this team has transformed our business. Their innovative solutions and dedication
-                            to customer success are unmatched in the industry."
-                        </p>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="h-12 w-12 rounded-full bg-gray-300">
-                            <img src="https://picsum.photos/200" alt="Profile photo of Michael Chen"
-                                class="h-full w-full object-cover rounded-full">
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-semibold text-gray-900">Michael Chen</h3>
-                            <p class="text-gray-600">Founder, Innovation Labs</p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Testimonial Card 3 -->
-                <article class="bg-white rounded-lg shadow-sm p-8 relative">
-                    <div class="absolute top-4 right-4">
-                        <svg class="w-8 h-8 text-indigo-200" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.999v10h-9.999z" />
-                        </svg>
-                    </div>
-                    <div class="mb-6">
-                        <p class="text-gray-600 italic">
-                            "The attention to detail and level of support we received was remarkable. They truly understand
-                            customer needs and deliver solutions that work."
-                        </p>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="h-12 w-12 rounded-full bg-gray-300">
-                            <img src="https://picsum.photos/200" alt="Profile photo of Emily Martinez"
-                                class="h-full w-full object-cover rounded-full">
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-semibold text-gray-900">Emily Martinez</h3>
-                            <p class="text-gray-600">Marketing Director, Growth Co</p>
-                        </div>
-                    </div>
-                </article>
+                @foreach ($testimonials as $testi)
+                    <x-testi-card :testi="$testi" />
+                @endforeach
             </div>
         </div>
     </section>

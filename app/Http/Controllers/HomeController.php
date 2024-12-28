@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Feature;
+use App\Models\Faq;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -27,20 +30,24 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
+        $features = Feature::all();
+        $faqs = Faq::where('is_active', true)->orderBy('order')->get();
+        $testimonials = Testimonial::where('is_active', true)->orderBy('order')->get();
+
         $seo = [
-            'title' => config('site_settings.company_name') . ' - Fresh Flowers & Arrangements',
-            'description' => 'Discover beautiful fresh flowers and floral arrangements at ' . config('site_settings.company_name') . '. Same-day delivery available in ' . config('site_settings.location'),
+            'title' => config('site_settings.company_name') . ' - ' . config('site_settings.tagline'),
+            'description' => 'Toko bunga terbaik di kota Bandung. Menyediakan berbagai macam rangkaian bunga segar untuk berbagai acara.',
             'schema' => $this->getHomeSchema(),
         ];
 
-        return view('pages.home', compact('featuredProducts', 'categories', 'seo'));
+        return view('pages.home', compact('featuredProducts', 'categories', 'seo', 'features', 'faqs', 'testimonials'));
     }
 
     private function getHomeSchema()
     {
         return [
             '@context' => 'https://schema.org',
-            '@type' => 'FlowerShop',
+            '@type' => 'Toko Bunga',
             'name' => config('site_settings.company_name'),
             'description' => config('site_settings.about_us'),
             'address' => [

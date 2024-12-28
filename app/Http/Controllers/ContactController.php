@@ -11,10 +11,11 @@ class ContactController extends Controller
     public function index()
     {
         $seo = [
-            'title' => 'Contact Us - ' . config('site_settings.company_name'),
-            'description' => 'Get in touch with ' . config('site_settings.company_name') . '. Visit our store or contact us for flower delivery and arrangements.',
+            'title' => 'Hubungi Kami - ' . config('site_settings.company_name'),
+            'description' => 'Hubungi ' . config('site_settings.company_name') . '. Kunjungi toko kami atau hubungi kami untuk pengiriman dan rangkaian bunga.',
             'schema' => $this->getContactSchema()
         ];
+
 
         return view('pages.contact', compact('seo'));
     }

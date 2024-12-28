@@ -17,6 +17,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Widgets\TrafficOverview;
+use App\Filament\Widgets\TrafficChart;
 
 class SakuraPanelProvider extends PanelProvider
 {
@@ -28,8 +30,14 @@ class SakuraPanelProvider extends PanelProvider
             ->path('sakura')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::hex('#fb7185'),
+
             ])
+
+            ->darkMode(false)
+            ->brandName('Fanny Florist')
+            ->brandLogo(asset('images/sakura-icon.png'))
+            ->favicon(asset('images/sakura-icon.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -37,8 +45,8 @@ class SakuraPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                TrafficOverview::class,
+                TrafficChart::class,
             ])
             ->middleware([
                 EncryptCookies::class,

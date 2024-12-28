@@ -13,10 +13,11 @@ class FaqController extends Controller
             ->get();
 
         $seo = [
-            'title' => 'Frequently Asked Questions - ' . config('site_settings.company_name'),
-            'description' => 'Find answers to common questions about our flower shop, delivery service, and floral arrangements.',
+            'title' => 'Pertanyaan yang Sering Diajukan - ' . config('site_settings.company_name'),
+            'description' => 'Temukan jawaban untuk pertanyaan umum tentang toko bunga kami, layanan pengiriman, dan rangkaian bunga.',
             'schema' => $this->getFaqSchema($faqs)
         ];
+
 
         return view('pages.faq', compact('faqs', 'seo'));
     }

@@ -2,9 +2,9 @@
 
 return [
     'default' => [
-        'title' => 'Your Florist Store Name',
-        'description' => 'Fresh flowers and floral arrangements in [Your Location]. Daily delivery available.',
-        'keywords' => 'florist, flowers, bouquet, floral arrangements, flower delivery',
+        'title' => 'Fanny Florist - Toko Bunga Terbaik di Bandung',
+        'description' => 'Toko bunga terbaik di kota Bandung. Menyediakan berbagai macam rangkaian bunga segar untuk berbagai acara.',
+        'keywords' => 'toko bunga, bunga segar, florist bandung, toko bunga bandung, bunga papan, bunga meja',
     ],
     'social' => [
         'facebook' => 'your-facebook-url',

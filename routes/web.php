@@ -11,7 +11,7 @@ use App\Http\Controllers\{
     SitemapController
 };
 
-Route::middleware([\App\Http\Middleware\SecurityHeaders::class])->group(function () {
+Route::middleware([\App\Http\Middleware\TrackVisits::class])->group(function () {
     Route::prefix('monitoring')->middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [MonitoringController::class, 'index'])->name('monitoring.index');
         Route::get('/performance', [MonitoringController::class, 'performance'])->name('monitoring.performance');

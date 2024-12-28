@@ -109,40 +109,43 @@
     </div>
 
     <!-- Main footer content -->
-    <div class="container mx-auto px-4 py-12 max-w-7xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- About section -->
-            <div class="space-y-4">
-                <h3 class="text-xl font-semibold text-gray-800">Bloom & Bouquet</h3>
-                <p class="text-gray-600">Bringing nature's beauty to your special moments with our handcrafted floral
-                    arrangements.</p>
+    <div class="container mx-auto px-4 py-12 max-w-screen-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-between w-full">
+            <div class="flex-1 space-y-4 min-w-[250px]">
+                <h3 class="text-xl font-semibold text-gray-800">{{ config('site_settings.company_name') }}</h3>
+                <p class="text-gray-600">
+                    {{ config('site_settings.company_description') }}
+                </p>
             </div>
 
-            <!-- Quick Links -->
-            <div class="space-y-4">
+            <div class="flex-1 space-y-4 min-w-[250px]">
                 <h3 class="text-xl font-semibold text-gray-800">Quick Links</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-600 hover:text-pink-500 transition-colors">Shop</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-pink-500 transition-colors">About Us</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-pink-500 transition-colors">Wedding
-                            Flowers</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-pink-500 transition-colors">Custom Orders</a>
+                    <li><a href="{{ route('home') }}"
+                            class="text-gray-600 hover:text-pink-500 transition-colors">Home</a></li>
+                    <li><a href="{{ route('catalog') }}"
+                            class="text-gray-600 hover:text-pink-500 transition-colors">Shop</a></li>
+                    <li><a href="{{ route('categories') }}"
+                            class="text-gray-600 hover:text-pink-500 transition-colors">Collections</a>
+                    </li>
+                    <li><a href="{{ route('contact') }}"
+                            class="text-gray-600 hover:text-pink-500 transition-colors">Contact</a>
                     </li>
                 </ul>
             </div>
 
             <!-- Contact Info -->
-            <div class="space-y-4">
+            <div class="flex-1 space-y-4 min-w-[250px]">
                 <h3 class="text-xl font-semibold text-gray-800">Contact Us</h3>
                 <ul class="space-y-2">
-                    <li class="text-gray-600">📞 (555) 123-4567</li>
-                    <li class="text-gray-600">📧 hello@bloombouquet.com</li>
-                    <li class="text-gray-600">📍 123 Flower Street</li>
+                    <li class="text-gray-600">📞 {{ config('site_settings.whatsapp_number') }}</li>
+                    <li class="text-gray-600">📧 {{ config('site_settings.company_email') }}</li>
+                    <li class="text-gray-600">📍 {{ config('site_settings.company_street') }}</li>
                 </ul>
             </div>
 
-            <!-- Newsletter -->
-            <div class="space-y-4">
+            {{-- <!-- Newsletter -->
+            <div class="flex-1 space-y-4 min-w-[250px]">
                 <h3 class="text-xl font-semibold text-gray-800">Newsletter</h3>
                 <p class="text-gray-600">Subscribe for floral inspiration and exclusive offers.</p>
                 <div class="flex gap-2">
@@ -152,14 +155,15 @@
                         Subscribe
                     </button>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- Bottom bar -->
         <div
             class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p class="text-gray-600">&copy; 2024 Bloom & Bouquet. All rights reserved.</p>
-            <div class="flex space-x-6">
+            <p class="text-gray-600">&copy; {{ date('Y') }} {{ config('site_settings.company_name') }}. All rights
+                reserved.</p>
+            {{-- <div class="flex space-x-6">
                 <a href="#" class="text-gray-600 hover:text-pink-500 transition-colors">
                     <span class="sr-only">Facebook</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -174,7 +178,7 @@
                             d="M12,2.982c2.937,0,3.285.011,4.445.064a6.087,6.087,0,0,1,2.042.379,3.408,3.408,0,0,1,1.265.823,3.408,3.408,0,0,1,.823,1.265,6.087,6.087,0,0,1,.379,2.042c.053,1.16.064,1.508.064,4.445s-.011,3.285-.064,4.445a6.087,6.087,0,0,1-.379,2.042,3.643,3.643,0,0,1-2.088,2.088,6.087,6.087,0,0,1-2.042.379c-1.16.053-1.508.064-4.445.064s-3.285-.011-4.445-.064a6.087,6.087,0,0,1-2.043-.379,3.408,3.408,0,0,1-1.265-.823,3.408,3.408,0,0,1-.823-1.265,6.087,6.087,0,0,1-.379-2.042c-.053-1.16-.064-1.508-.064-4.445s.011-3.285.064-4.445a6.087,6.087,0,0,1,.379-2.042,3.408,3.408,0,0,1,.823-1.265,3.408,3.408,0,0,1,1.265-.823,6.087,6.087,0,0,1,2.043-.379c1.16-.053,1.508-.064,4.445-.064M12,1c-2.987,0-3.362.013-4.535.066a8.074,8.074,0,0,0-2.67.511,5.392,5.392,0,0,0-1.949,1.27,5.392,5.392,0,0,0-1.27,1.949,8.074,8.074,0,0,0-.511,2.67C1.013,8.638,1,9.013,1,12s.013,3.362.066,4.535a8.074,8.074,0,0,0,.511,2.67,5.392,5.392,0,0,0,1.27,1.949,5.392,5.392,0,0,0,1.949,1.27,8.074,8.074,0,0,0,2.67.511C8.638,22.987,9.013,23,12,23s3.362-.013,4.535-.066a8.074,8.074,0,0,0,2.67-.511,5.625,5.625,0,0,0,3.219-3.219,8.074,8.074,0,0,0,.511-2.67C22.987,15.362,23,14.987,23,12s-.013-3.362-.066-4.535a8.074,8.074,0,0,0-.511-2.67,5.392,5.392,0,0,0-1.27-1.949,5.392,5.392,0,0,0-1.949-1.27,8.074,8.074,0,0,0-2.67-.511C15.362,1.013,14.987,1,12,1Zm0,5.351A5.649,5.649,0,1,0,17.649,12,5.649,5.649,0,0,0,12,6.351Zm0,9.316A3.667,3.667,0,1,1,15.667,12,3.667,3.667,0,0,1,12,15.667Zm5.872-10.859a1.32,1.32,0,1,0,1.32,1.32A1.32,1.32,0,0,0,17.872,4.808Z" />
                     </svg>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </div>
 

@@ -17,6 +17,7 @@ class ProductSortingService
                 return $query->orderBy('name', 'desc');
             case 'oldest':
                 return $query->oldest();
+
             default:
                 return $query->latest();
         }

@@ -2,11 +2,11 @@
 
 // config/site.php
 return [
-    'name' => env('APP_NAME', 'Your Florist Store'),
+    'name' => env('APP_NAME', 'Fanny Florist'),
     'meta' => [
         'title_separator' => ' - ',
-        'default_description' => 'Fresh flowers and floral arrangements in [Location]. Same-day delivery available.',
-        'default_keywords' => 'florist, flowers, bouquet, floral arrangements, flower delivery',
+        'default_description' => 'Toko bunga terbaik di kota Bandung. Menyediakan berbagai macam rangkaian bunga segar untuk berbagai acara.',
+        'default_keywords' => 'toko bunga, bunga segar, florist bandung, toko bunga bandung, bunga papan, bunga meja',
         'default_image' => '/images/og-default.jpg',
     ],
     'social' => [

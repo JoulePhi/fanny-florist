@@ -28,8 +28,8 @@ class CatalogController extends Controller
         $products = $query->paginate(12);
 
         $seo = [
-            'title' => 'Our Flower Collection - ' . config('site_settings.company_name'),
-            'description' => 'Browse our collection of fresh flowers, bouquets, and floral arrangements. Perfect for any occasion.',
+            'title' => 'Koleksi Bunga Terbaik - ' . config('site_settings.company_name'),
+            'description' => 'Jelajahi koleksi bunga segar, karangan bunga, dan rangkaian bunga kami. Sempurna untuk setiap kesempatan.',
             'schema' => $this->seoService->getCatalogSchema()
         ];
 
@@ -51,7 +51,7 @@ class CatalogController extends Controller
 
         $seo = [
             'title' => $category->meta_title ?? $category->name . ' - ' . config('site_settings.company_name'),
-            'description' => $category->meta_description ?? "Browse our {$category->name} collection. Fresh and beautiful flowers available for delivery.",
+            'description' => $category->meta_description ?? "Jelajahi koleksi {$category->name} kami. Sempurna untuk setiap kesempatan.",
             'schema' => $this->seoService->getCategorySchema($category)
         ];
 
@@ -75,9 +75,10 @@ class CatalogController extends Controller
 
         $seo = [
             'title' => $product->meta_title ?? $product->name . ' - ' . config('site_settings.company_name'),
-            'description' => $product->meta_description ?? "Buy {$product->name} from " . config('site_settings.company_name') . ". Fresh flowers available for delivery.",
+            'description' => $product->meta_description ?? "Beli {$product->name} di " . config('site_settings.company_name') . ". Tersedia untuk pengiriman.",
             'schema' => $this->seoService->getProductSchema($product)
         ];
+
 
         return view('pages.catalog.product', compact('category', 'product', 'relatedProducts', 'breadcrumbs', 'seo'));
     }

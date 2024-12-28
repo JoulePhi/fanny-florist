@@ -185,7 +185,7 @@
 
                 {{-- Google Maps --}}
                 <div class="bg-white p-4 rounded-lg shadow-lg border border-rose-100">
-                    <div class="aspect-w-16 aspect-h-9">
+                    <div class="aspect-w-16 overflow-hidden rounded-lg">
                         {!! config('site_settings.google_maps_embed') !!}
                     </div>
                 </div>

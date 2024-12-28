@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center h-16"> <!-- Logo and Brand Name -->
             <div class="flex items-center"> <img src="{{ asset('images/sakura-icon.png') }}" class="h-12 object-contain"
                     alt="Logo Sakura"><a href="{{ route('home') }}"
-                    class="ml-2 text-xl text-rose-700 hover:text-rose-600">{{ config('site_settings.company_name') }}</a>
+                    class="ml-2 text-xl text-rose-700 hover:text-rose-600 font-bold">{{ config('site_settings.company_name') }}</a>
             </div>
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8">

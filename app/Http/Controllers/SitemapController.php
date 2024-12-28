@@ -10,15 +10,10 @@ class SitemapController extends Controller
 {
     public function index()
     {
-
-        // delete the existing sitemap
-        // if (file_exists(public_path('sitemap.xml'))) {
-        //     unlink(public_path('sitemap.xml'));
-        // }
-        // dd('here');
-
+        // Create new sitemap
         $sitemap = Sitemap::create();
 
+        // Add routes
         $sitemap->add(Url::create('/')
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
             ->setPriority(1.0));
@@ -49,8 +44,15 @@ class SitemapController extends Controller
                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                 ->setPriority(0.8));
         });
-        // $sitemap->writeToFile(public_path('sitemap.xml'));
-        // $sp = $sitemap->render();
-        return response($sitemap->render())->header('Content-Type', 'text/xml');
+
+        // Clear any output buffering
+        if (ob_get_level()) {
+            ob_end_clean();
+        }
+
+        // Return response with proper headers
+        return response($sitemap->render())
+            ->header('Content-Type', 'text/xml')
+            ->header('Cache-Control', 'public, max-age=3600');
     }
 }

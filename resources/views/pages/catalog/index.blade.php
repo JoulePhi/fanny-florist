@@ -64,9 +64,10 @@
 @section('content')
     <div class="container mx-auto py-8 px-4 max-w-screen-xl">
         <div class="mb-8">
-            <h1 class="text-4xl font-bold mb-4">{{ $pageTitle ?? 'Our Flower Collection' }}</h1>
+            <h1 class="text-4xl font-bold mb-4">{{ $pageTitle ?? 'Koleksi Bunga Terbaik' }}</h1>
             <p class="text-gray-600">
-                {{ $pageDescription ?? 'Browse our beautiful selection of fresh flowers and arrangements' }}</p>
+                {{ $pageDescription ?? 'Jelajahi koleksi bunga segar, karangan bunga, dan rangkaian bunga kami. Sempurna untuk setiap kesempatan.' }}
+            </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -90,7 +91,7 @@
 
                     {{-- Price Range Filter --}}
                     <div class="mb-6">
-                        <h2 class="text-xl font-semibold mb-4">Price Range</h2>
+                        <h2 class="text-xl font-semibold mb-4">Rentang Harga</h2>
                         <form action="{{ request()->url() }}" method="GET" class="space-y-4">
                             <input type="hidden" name="sort" value="{{ request()->get('sort') }}">
                             <div class="flex gap-2">
@@ -99,8 +100,9 @@
                                 <input type="number" name="max_price" value="{{ request()->get('max_price') }}"
                                     placeholder="Max" class="w-1/2 rounded border-gray-300">
                             </div>
-                            <button type="submit" class="w-full bg-primary text-white py-2 rounded hover:bg-primary-dark">
-                                Apply Filter
+                            <button type="submit"
+                                class="w-full bg-bloom-600 text-white py-2 rounded hover:bg-primary-dark">
+                                Terapkan
                             </button>
                         </form>
                     </div>

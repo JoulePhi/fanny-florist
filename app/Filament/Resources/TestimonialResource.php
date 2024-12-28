@@ -2,41 +2,40 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
-use App\Models\Category;
+use App\Filament\Resources\TestimonialResource\Pages;
+use App\Filament\Resources\TestimonialResource\RelationManagers;
+use App\Models\Testimonial;
 use Filament\Forms;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Forms\Components\FileUpload;
 
-class CategoryResource extends Resource
+class TestimonialResource extends Resource
 {
-    protected static ?string $model = Category::class;
+    protected static ?string $model = Testimonial::class;
 
-    protected static ?string $navigationIcon = 'heroicon-s-rectangle-group';
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationIcon = 'heroicon-c-chat-bubble-left-right';
+    protected static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name')
+                Textarea::make('content')
                     ->required()
                     ->unique(ignoreRecord: true),
-                Textarea::make('description'),
-                TextInput::make('meta_title')
-                    ->label('SEO Title')
-                    ->placeholder('Leave empty to use category name'),
-                Textarea::make('meta_description')
-                    ->label('SEO Description')
-                    ->rows(3)
+                FileUpload::make('image')
+                    ->image(),
+                Toggle::make('is_active'),
             ]);
     }
 
@@ -44,11 +43,9 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('products_count')
-                    ->counts('products')
-                    ->label('Products'),
+                TextColumn::make('content')->sortable()->searchable()->limit(50),
 
+                ToggleColumn::make('is_active')->sortable()->searchable()->label('Active'),
             ])
             ->filters([
                 //
@@ -74,9 +71,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListTestimonials::route('/'),
+            'create' => Pages\CreateTestimonial::route('/create'),
+            'edit' => Pages\EditTestimonial::route('/{record}/edit'),
         ];
     }
     public static function getNavigationBadge(): ?string
